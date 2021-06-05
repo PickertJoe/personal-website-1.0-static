@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pickert-website-static.s3.amazonaws.com/css/custom.css" type='text/css' />
+    <link rel='icon' href="https://pickert-website-static.s3.amazonaws.com/images/snow.jpg"/>
+    <meta http-equiv="pragma" content='no-cache' />
+    <meta name='keywords' content='joe pickert, joe pickert website, resume, pickert website'>
+    <meta name='description' content="The personal website of Joe Pickert">
+    <meta name='author' content='Joe Pickert'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+
+  <nav class="navbar navbar-expand-lg sticky-top">
+          <a class="navbar-brand" href="../../index.html">Home</a>
+          <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse"  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="../../projects/index.html">Project Portfolio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../about/index.html">About Me</a>
+              </li>
+            </ul>
+            <a class="nav-link" href="https://joepickert.dev">Back to New Site!</a>         
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="../../contact/index.html">Contact</a>
+              </li>
+            </ul>
+      </div>
+  </nav>
+<body>
+
+
+<title>
+    Working with Linked-List Data Structures
+</title>
+<div class="container">
+    <div class="row">
+        <div class="col-9 blog-detail">
+            <a class='blog-link' href="../index.html">Blog Home</a>
+            <h1 align='center'>Working with Linked-List Data Structures</h1>
+            <small>
+                June 26, 2019 |&nbsp;
+
+            </small>
+            <p class='content-markdown'>I though I&#39;d take a break from development news to share a little bit of what I&#39;ve been learning in my work with data structures in Python.
+
+While working on this website, I&#39;ve also been working my way through the second edition of *Problem Solving with Algorithms and Data Structures Using Python* by Bradley Miller and David Ranum. Since I have little in the way of academic background in computer science, I&#39;ve been working hard to solidify my fundamentals as I work on more complex projects. Although much of the theory behind computing is esoteric and, according to my friends in software engineering, seldom found in the workplace, I still want to learn as much as I possibly can. In my view, this would only make me a more effective software developer and hence, a more competitive candidate for employment. 
+
+At any rate, I&#39;ve been working through the exercises at the end of chapter 3, which deals with simple data structures like stacks, queues, deques, and lists. One in particular asks the reader to implement an unordered list class using a pre-constructed node class. In essence, the goal is to create a fully functional class to emulate an unsorted, linked-list data structure. 
+
+To accomplish this, the user is tasked with implementing the follow methods:
+
+ - **isEmpty** (returns a boolean stating whether the list is empty or not)
+ - **add** (takes a value as an argument, creates a new node, attaches this
+   node to the front of the list, and moves the head pointer to this new
+   node)
+ - **length** (returns an integer stating the number of nodes in the list)
+ - **search** (takes a values as an argument and returns a boolean stating
+   whether the argument is in the list)
+ - **remove** (takes a value as an argument and removes it from the linked
+   list)
+ - **pop** (takes an optional index argument and returns the value of either
+   the end of the list or the provided index; removes the value from the
+   list)
+ - **append** (takes a value as an argument and adds it on to the end of the
+   list)
+ - **index** (takes a value as an argument and returns the index of that
+   value within the list)
+ - **insert** (takes a value and an index as arguments and inserts the value
+   before the provided index in the list)
+
+Of these methods, the one that I struggled the most to implement was the pop method, as I had a difficult time figuring out how to handle the optional position argument. At first, if I passed a specific index to my pop method, it would return the incorrect value. For example, if I had a list with 9 values with indices 0-8 (with 0 being the original position and 8 being the position pointed to by the head), if I passed the argument 3 to my pop function it would return the value in the 5 position instead of the 3 position. Essentially, it was reading from the wrong end of my list. 
+
+To correct this, I simply had to reverse the comparison operator governing the while loop that inch-wormed through the list until the correct index was located. If you&#39;d like to see what my solution looked like in code, I&#39;d encourage you to visit my script on GitHub:
+
+[https://github.com/PickertJoe/algorithms-data_structures/blob/master/unordered_list.py][1]
+
+After finally cracking this problem, I wrote a comprehensive testing script to ensure that each of the methods functioned properly. I must have been in a good state of flow while writing it, because it all came very fluently and naturally and all the tests passed on my first try. It&#39;s always a rare and special moment when everything comes together in code like that.
+
+Today, I&#39;d like to finish the contact information page on my website, fix the issues I&#39;ve been having with my home page&#39;s hide/show button, and do a few more exercises in my data structures textbook.
+
+-Joe
+
+
+  [1]: https://github.com/PickertJoe/algorithms-data_structures/blob/master/unordered_list.py</p>
+        </div>
+        <div class="col-3">
+        <img src="https://pickert-website-static.s3.amazonaws.com/images/Pro.jpg" class='img-fluid'>
+                Hello!</br></br>
+                I'm Joe Pickert, and welcome to my blog.<br><br>
+                Here, you can find a collection of my thoughts both tech-related and otherwise.<br><br>
+                If you find something that interests you, please leave a comment! I'd love to hear your thoughts and feedback!
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.6.2/marked.min.js"></script>
+<script src="https://pickert-website-static.s3.amazonaws.com/js/custom.js" type='text/javascript'></script>
+</body>
+</html>

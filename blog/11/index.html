@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pickert-website-static.s3.amazonaws.com/css/custom.css" type='text/css' />
+    <link rel='icon' href="https://pickert-website-static.s3.amazonaws.com/images/snow.jpg"/>
+    <meta http-equiv="pragma" content='no-cache' />
+    <meta name='keywords' content='joe pickert, joe pickert website, resume, pickert website'>
+    <meta name='description' content="The personal website of Joe Pickert">
+    <meta name='author' content='Joe Pickert'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+
+  <nav class="navbar navbar-expand-lg sticky-top">
+          <a class="navbar-brand" href="../../index.html">Home</a>
+          <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse"  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="../../projects/index.html">Project Portfolio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../about/index.html">About Me</a>
+              </li>
+            </ul>
+            <a class="nav-link" href="https://joepickert.dev">Back to New Site!</a>         
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="../../contact/index.html">Contact</a>
+              </li>
+            </ul>
+      </div>
+  </nav>
+<body>
+
+
+<title>
+    Some Last Minute Changes
+</title>
+<div class="container">
+    <div class="row">
+        <div class="col-9 blog-detail">
+            <a class='blog-link' href="../index.html">Blog Home</a>
+            <h1 align='center'>Some Last Minute Changes</h1>
+            <small>
+                June 29, 2019 |&nbsp;
+
+            </small>
+            <p class='content-markdown'>Gahhh, I&#39;m so close to publishing this website but there are still just a few things I want to care of before sending it out for the world to see.
+
+The most important of which is probably cleaning up all of my code. Don&#39;t get me wrong, it&#39;s not in a bad state by any means. But I just need to go through all of my files (especially my HTML templates!) and make sure that everything is concise, pretty, and efficient. Since I&#39;ve never received any formal training in proper HTML styling, I&#39;m going to do a bit of research tonight to see if I can find a good tutorial. Then I&#39;ll just need to comb through each of my HTML templates to make sure they&#39;re up to snuff. 
+
+I don&#39;t anticipating it taking too long, but when it comes to programming, it&#39;s best not to jinx yourself. I probably just did. Dangit!!
+
+At any rate, cleaning up my code is the last objective I have before finally pushing the site to publication. After the work I did today, I&#39;m really happy with how everything has come together.
+
+First, I managed to solve the blog/category sorting issue I described in my last post. Each time I clicked on a category link beneath one of my blog posts, I&#39;d get a FieldError from Django. Essentially, this meant that the view function that I was calling each time I clicked the link was running into an error with the query sort I was trying to impost on the collection of all my posts. 
+
+The objective of the function was to create a new collection of all previous posts tagged under the category of interest and display them on a page identical to my blog index. From there, the user would be able to browse category-specific posts and read them as usual.
+
+Much to my chagrin, my origin query sort:
+
+posts = Post.objects.filter(categories__name__contains=category).order_by(
+        &#39;-created_on&#39;
+    )
+
+was simply missing additional underscores between &#39;categories&#39; and &#39;name&#39; and &#39;name&#39; and &#39;contains.&#39; After nearly an hour of fruitless troubleshooting, this simple addition did the trick.
+
+From there, I just standardized the formatting for the new &#39;blog_categories.html&#39; and added a link back to blog index.
+
+I then turned my attention to my navbar. To enhance the site&#39;s usability, I wanted the navbar to remain fixed at the top of the window regardless of scrolling so that the user could seamlessly hop between pages. The issue however, was that my transparent navbar was sitting on top of the page contents as they scrolled past, producing an illegible and sloppy mess. I wanted to find a way to make the navbar a solid color upon scrolling down, and that&#39;s exactly what I found.
+
+A fellow programmer by the name of Erin Manahan contributed this brilliant Javascript function to a discussion board where this exact issue was addressed. Their code was as follows:
+
+$(document).ready(function() {
+        $(window).scroll(function() {
+          if($(this).scrollTop() &gt; 50) {
+              $(&#39;.navbar&#39;).addClass(&#39;solid&#39;);
+          } else {
+              $(&#39;.navbar&#39;).removeClass(&#39;solid&#39;);
+          }
+        });
+});
+
+What this function does is add the new class &#39;solid&#39; to the existing &#39;navbar&#39; class once the user scrolls 50 pixels down the page. With this in hand, I was then able to customize the new &#39;navbar-solid&#39; class in my custom CSS file to conform with the theme of the rest of my site.
+
+I&#39;m incredibly grateful to Erin for their elegant and well-explained solution to my dilemma. In the incredibly off chance that you ever read this, thank you Erin!!
+
+My latest bit of work for the day was going through my &quot;About Me&quot; section one more time. I only made a few changes, but I feel really confident about it now, and am excited to finally share this site with the rest of the world.
+
+-Joe</p>
+        </div>
+        <div class="col-3">
+        <img src="https://pickert-website-static.s3.amazonaws.com/images/Pro.jpg" class='img-fluid'>
+                Hello!</br></br>
+                I'm Joe Pickert, and welcome to my blog.<br><br>
+                Here, you can find a collection of my thoughts both tech-related and otherwise.<br><br>
+                If you find something that interests you, please leave a comment! I'd love to hear your thoughts and feedback!
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.6.2/marked.min.js"></script>
+<script src="https://pickert-website-static.s3.amazonaws.com/js/custom.js" type='text/javascript'></script>
+</body>
+</html>
